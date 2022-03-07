@@ -14,13 +14,14 @@ colnames(grades) <- c("point", "grade")
 # CPIH
 inflation <- read_csv("series-070322.csv", skip=8, col_names=FALSE)
 names(inflation) <- c("year", "inflation")
+# inflation as proportion
+inflation$inflation <- inflation$inflation/100
+inflation$inflation <- inflation$inflation/inflation$inflation[inflation$year==2021]
 
 # merge them
 dat <- merge(scales, grades)
 dat <- merge(dat, inflation)
 
-# inflation as proportion
-dat$inflation <- dat$inflation/100
 dat$salary_inflated <- dat$salary * dat$inflation
 
 dat <- dat %>%
@@ -30,14 +31,16 @@ dat <- dat %>%
   # only print some years
   filter(year %in% seq(2008, 2021, by=3)) %>%
   # only print reasonable years
-  filter(ind %in% 2008:2021)
+#  filter(ind %in% 2008:2021)
+  ungroup() %>%
+  filter(grade==6)
 
 
 # check
 ggplot(dat) +
   geom_line(aes(x=ind, y=salary_inflated,
                 group=as.factor(year), colour=as.factor(year))) +
-  facet_wrap(~grade)
+  facet_wrap(~grade, scale="free_y")
 
 
 
