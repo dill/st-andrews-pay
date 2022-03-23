@@ -18,3 +18,8 @@ In the UK, university pay scales are decided centrally, but the grades they corr
 - National pay scale data from [Edinburgh University, here](https://www.ed.ac.uk/human-resources/pay-reward/pay/archive-pay-scales) as PDFs :(
 - University of St Andrews grades [here](https://www.st-andrews.ac.uk/staff/money/salaries/)
 
+# Some plots
+
+![Plot for grade 5](grade5.png)
+![Plot for grade 6](grade6.png)
+![Plot for grade 7](grade7.png)
