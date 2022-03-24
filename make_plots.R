@@ -83,7 +83,7 @@ mk_plot(dat, 7, 44, 37)
 
 
 # make the plots, but as PNG files
-ggsave(file="grade5.png", mk_plot(dat, 5, 29, 23), bg="white")
-ggsave(file="grade6.png", mk_plot(dat, 6, 36, 30), bg="white")
-ggsave(file="grade7.png", mk_plot(dat, 7, 44, 37), bg="white")
+ggsave(file="grade5.png", mk_plot(dat, 5, 29, 23), bg="white", width=9)
+ggsave(file="grade6.png", mk_plot(dat, 6, 36, 30), bg="white", width=9)
+ggsave(file="grade7.png", mk_plot(dat, 7, 44, 37), bg="white", width=9)
 
