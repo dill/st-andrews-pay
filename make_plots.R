@@ -1,4 +1,7 @@
-###
+### inflation-adjusted salaries for UK universities grades
+
+# you can use this for your own institution by running the mk_plot function
+# and feeding it your own grade boundaries
 
 library(dplyr)
 library(readr)
@@ -77,4 +80,10 @@ mk_plot <- function(dat, grade, top_point, bottom_point){
 mk_plot(dat, 5, 29, 23)
 mk_plot(dat, 6, 36, 30)
 mk_plot(dat, 7, 44, 37)
+
+
+# make the plots, but as PNG files
+ggsave(file="grade5.png", mk_plot(dat, 5, 29, 23), bg="white")
+ggsave(file="grade6.png", mk_plot(dat, 6, 36, 30), bg="white")
+ggsave(file="grade7.png", mk_plot(dat, 7, 44, 37), bg="white")
 
